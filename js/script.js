@@ -30,23 +30,43 @@ function getRandomNumber(number1, number2)
 var basketX = parseInt($("#basketfront").css("left"));
 var basketY = parseInt($("#basketfront").css("top"));
 
+function shakeApple(apple){
+
+ $(apple).animate({left: "+=3", bottom: "+=3"}, 30)
+.animate({left: "+=3", bottom: "+=3"}, 30)
+.animate({left: '-=6', bottom: '-=6'}, 30)
+.animate({left: '+=3', bottom: '+=3'}, 30)
+.animate({left: '-=6', bottom: '-=6'}, 30)
+.animate({left: '+=2', bottom: '+=2'}, 30)
+.animate({left: '-=4', bottom: '-=4'}, 30)
+.animate({left: '+=1', bottom: '+=1'}, 30)
+.animate({left: '-=2', bottom: '-=2'}, 30)
+.animate({left: '+=1', bottom: '+=1'}, 30)
+.animate({left: '-=2', bottom: '-=2'}, 30);
+}
 
 $(".apple").on("click", function(){
+   
+
     var id = $(this).attr("id");
     switch(id)
     {
         case "apple1":
+            shakeApple("#apple1");
             $("#apple1").animate({left : basketX +20, top: basketY +10});
             break;
         case "apple2":
+            shakeApple("#apple2");
                 $("#apple2").animate({left: basketX +70, top: basketY +10});
             break;
         case "apple3":
+            shakeApple("#apple3");
                 $("#apple3").animate({left: basketX +120, top: basketY +10});
             break;  
     }
    
 })
+
 
 
 
@@ -64,11 +84,12 @@ function moveButterfly(speed){
     })
 }
 
-
 $("#butterfly").mouseover(function (){
     $(this).stop(true);
     moveButterfly("slow");
 })
+
+
 
 //  WATERING CAN
 var watering=0;
@@ -98,7 +119,7 @@ function dropping(i)
     var canY = parseInt($("#wateringcan").css("top"));
     $("img:nth-of-type("+i+")").css({left : canX + getRandomNumber(0, 50), top: canY + 130});
     $("img:nth-of-type("+i+")").animate({top:"+=350px"}, getRandomNumber(2000,3000), function (){
-        if (watering ==1)
+        if (watering == 1)
         dropping(i);
     });
 }
