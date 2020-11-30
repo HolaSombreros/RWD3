@@ -53,9 +53,9 @@ body {
 
 body {
     margin: 0px;
-    background-image: url("../images/grass.png");
+    background-image: url("../images/\'The\ Starry\ Night\,\ June\ 1889\'\ Giclee\ Print\ -\ Vincent\ van\ Gogh\ _\ Art_com.jpg");
     background-attachment: fixed;
-    background-repeat: repeat-x;
+    background-repeat: no-repeat;
     background-position: bottom;
     overflow: hidden;
 }
